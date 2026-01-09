@@ -1,15 +1,21 @@
-package com.yedam.app.xml;
+package com.yedam.app.anotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Restaurant {
 	// 필드
 	private Chef chef;
 
 	// 생성자
 	public Restaurant() {
+		System.out.println("[Restaurant] 생성자 실행");
 	}
 
+	@Autowired
 	public Restaurant(Chef chef) {
-		System.out.println("[Restaurant] 생성자 실행");
+		System.out.println("[Restaurant @Autowired] 생성자 실행");
 		this.chef = chef;
 	}
 

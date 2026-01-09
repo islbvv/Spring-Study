@@ -1,4 +1,4 @@
-package com.yedam.app.xml;
+package com.yedam.app.java;
 
 public class Restaurant {
 	// 필드
@@ -6,6 +6,7 @@ public class Restaurant {
 
 	// 생성자
 	public Restaurant() {
+		System.out.println("[Restaurant] 생성자 실행");
 	}
 
 	public Restaurant(Chef chef) {

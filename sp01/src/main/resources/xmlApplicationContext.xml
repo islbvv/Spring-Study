@@ -13,6 +13,9 @@
 	<bean id="res" class="com.yedam.app.xml.Restaurant">
 		<!-- 생성자 injection -->
 		<constructor-arg ref="chef" />
+
+		<!-- 생성자 injection -->
+		<!-- <property name="chef" ref="chef" /> -->
 	</bean>
 
 </beans>
