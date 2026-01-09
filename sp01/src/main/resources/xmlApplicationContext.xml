@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring이 관리할 Bean 등록 -->
+	<bean id="Samsung" class="com.yedam.app.xml.SamsungTV" />
+	<bean id="LG" class="com.yedam.app.xml.LGTV" />
+
+	<!-- DI 설정 -->
+	<bean id="chef" class="com.yedam.app.xml.Chef" />
+	<bean id="res" class="com.yedam.app.xml.Restaurant">
+		<!-- 생성자 injection -->
+		<constructor-arg ref="chef" />
+	</bean>
+
+</beans>
