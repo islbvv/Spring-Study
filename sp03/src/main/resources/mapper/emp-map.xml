@@ -65,7 +65,7 @@
 		, #{email}
 		<choose>
 			<when test="hireDate != null">
-				, #{hire_date}
+				, #{hireDate}
 			</when>
 			<otherwise>
 				, sysdate
@@ -82,7 +82,7 @@
 	<update id="updateEmp" parameterType="EmpVO">
 		UPDATE employees
 		SET last_name = #{emp.lastName}
-		<if test="emp.email != null and !emp.email.equqls('')">
+		<if test="emp.email != null and !emp.email.equals('')">
 			, email = #{emp.email}
 		</if>
 		, hire_date = #{emp.hireDate}

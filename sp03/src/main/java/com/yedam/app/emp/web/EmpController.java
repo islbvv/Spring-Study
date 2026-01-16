@@ -36,6 +36,9 @@ public class EmpController {
 	// 2. 클라이언트에 전달할 데이터 담기
 	// 3. 데이터를 출력할 페이지 선택
 	// -> 페이지 이름은 "/"로 시작하면 안 됨
+	// -> prefix + 페이지 + suffix로 구성이 됨
+	// prefix -> classpath:/templates/
+	// suffix -> .html
 
 	// 전체조회
 	@GetMapping("empList")
@@ -49,7 +52,7 @@ public class EmpController {
 	@GetMapping("empInfo")
 	public String empInfo(EmpVO empVO, Model model) {
 		EmpVO findVO = empService.findByEmployeeId(empVO);
-		model.addAttribute(findVO);
+		model.addAttribute("emp", findVO);
 		return "emp/info";
 	}
 
@@ -71,7 +74,7 @@ public class EmpController {
 	@GetMapping("empUpdate")
 	public String updateFrom(EmpVO empVO, Model model) {
 		EmpVO findVO = empService.findByEmployeeId(empVO);
-		model.addAttribute(findVO);
+		model.addAttribute("emp", findVO);
 		return "emp/update";
 	}
 
