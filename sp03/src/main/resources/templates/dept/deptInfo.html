@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<title>Home HTML</title>
+</head>
+<body>
+	<div class="container">
+		<h3>단건 조회</h3>
+		<div>
+			<div>
+				<label for="deptId">Dept ID</label>
+				<input id="deptId" type="text" th:value="${dept.departmentId}" readonly />
+			</div>
+			<div>
+				<label for="deptName">이름</label>
+				<input id="deptName" type="text" th:value="${dept.departmentName}" readonly />
+			</div>
+			<div>
+				<label for="managerId">Manager Id</label>
+				<input id="managerId" type="text" th:value="${dept.managerId}" readonly />
+			</div>
+			<div>
+				<label for="locationId">Location Id</label>
+				<input id="locationId" type="text" th:value="${dept.locationId}" readonly />
+			</div>
+			<div>
+				<button type="button" th:onclick="|location.href='@{deptUpdate(departmentId=${dept.departmentId})}'|">수정</button>
+				<button type="button" th:onclick="|location.href='@{deptList}'|">목록</button>
+				<button type="button" th:onclick="|location.href='@{deptDelete(deptId=${dept.departmentId})}'|">삭제</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

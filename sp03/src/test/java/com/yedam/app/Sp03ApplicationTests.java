@@ -72,7 +72,7 @@ class Sp03ApplicationTests {
 	}
 
 	// 삭제
-//	@Test
+	@Test
 	void deleteOne() {
 		int result = empMapper.deleteEmp(211);
 		assertEquals(1, result);

@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<title>Home HTML</title>
+</head>
+<body>
+	<div class="container">
+		<h3>등록</h3>
+		<form name="insertForm" th:action="@{/deptInsert}" method="post">
+			<div>
+				<label for="deptName">이름</label>
+				<input id="deptName" type="text" name="departmentName" />
+			</div>
+			<div>
+				<label for="managerId">Manager Id</label>
+				<input id="managerId" type="text" name="managerId" />
+			</div>
+			<div>
+				<label for="locationId">Location Id</label>
+				<input id="locationId" type="text" name="locationId" />
+			</div>
+			<div>
+				<button type="reset">초기화</button>
+				<button type="submit">등록</button>
+			</div>
+		</form>
+	</div>
+
+	<script>
+		const form = document.querySelector('form[name="insertForm"]');
+		form.addEventListener('submit', insertDept);
+
+		function insertDept(e) {
+			e.preventDefault();
+			const deptName = document.querySelector('[name="departmentName"]');
+			if (deptName.value == '') {
+				alert('이름은 필수입니다.');
+				deptName.focus();
+				return;
+			}
+			alert('정상적으로 등록되었습니다.');
+			e.currentTarget.submit();
+		}
+	</script>
+</body>
+</html>
