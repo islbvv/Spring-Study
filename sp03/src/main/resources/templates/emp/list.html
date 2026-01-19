@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="common/layouts/default_layout" layout:fragment="Content">
 <head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<meta charset="UTF-8" />
+<!-- fragment 호출 : fragment 표현식-->
+<th:block th:replace="~{common/configs/default_configs::ContextPathConfig}" />
+<th:block th:replace="~{common/configs/default_configs::BootstrapConfig}" />
 <title>투명드래곤이 울부짖었다.</title>
 </head>
 <body>
@@ -28,10 +29,28 @@
 						<td>[[ ${info.lastName} ]]</td>
 						<td>[[ ${#dates.format(info.hireDate, "yyyy년 MM월 dd일")} ]]</td>
 						<td>[[ ${info.jobId} ]]</td>
+						<td>
+							<!-- <button th:onclick="|location.href='@{/empInfo(employeeId=${info.employeeId})}'|">나는 버튼</button> -->
+						</td>
 					</tr>
 				</th:block>
 			</tbody>
 		</table>
 	</div>
+
+	<script>
+      const contextPath = document.querySelector('meta[name="ctxPath"]').getAttribute('value') ?? '';
+      const empTr = document.querySelectorAll('tbody tr');
+      empTr.forEach((trTag) => {
+        trTag.addEventListener('click', function (event) {
+          let trTag = event.currentTarget;
+          let eId = trTag.querySelector('td:nth-of-type(2)').textContent;
+          let url = contextPath + '/empInfo?employeeId=' + eId;
+          console.log(eId);
+          console.log(url);
+          location.href = url;
+        });
+      });
+    </script>
 </body>
 </html>

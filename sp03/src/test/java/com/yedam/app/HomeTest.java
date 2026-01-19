@@ -19,12 +19,12 @@ public class HomeTest {
 	@Autowired
 	private DeptMapper deptMapper;
 
-//	@Test
+	@Test
 	public void contextLoadsTest() {
 		assertNotNull(deptMapper);
 	}
 
-//	@Test
+	@Test
 	public void findDeptAll() {
 		List<DeptVO> list = deptMapper.findDeptAll();
 		assertFalse(list.isEmpty());
@@ -74,7 +74,7 @@ public class HomeTest {
 		System.out.println();
 	}
 
-	@Test
+//	@Test
 	public void deleteDept() {
 		int result = deptMapper.deleteDept(302);
 		assertEquals(1, result);

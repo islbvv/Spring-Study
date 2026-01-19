@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="~{common/configs/default_configs::ContextPathConfig}" />
+<th:block th:replace="~{common/configs/default_configs::BootstrapConfig}" />
+<title>투명드래곤이 울부짖었다.</title>
+</head>
+<body>
+	<header th:insert="~{common/fragments/default_header::DefaultHeader}"></header>
+	<main>
+		<div layout:fragment=Content></div>
+	</main>
+</body>
+</html>
