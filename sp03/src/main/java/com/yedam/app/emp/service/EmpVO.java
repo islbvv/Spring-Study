@@ -4,9 +4,16 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+// @AllArgsConstructor와 @Data가 있어야 @Builder 사용가능
+@AllArgsConstructor
 @Data
+@Builder
 public class EmpVO {
 	private Integer employeeId; // PK
 	private String firstName;
